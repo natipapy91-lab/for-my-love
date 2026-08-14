@@ -1,0 +1,2019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy Birthday My Love ❤️</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #120e16;
+            --card-bg: rgba(28, 22, 36, 0.92);
+            --accent-gold: #f3a683;
+            --accent-pink: #ff758c;
+            --accent-rose: #ff7eb3;
+            --text-main: #f8efeb;
+            --text-muted: #b8a9c2;
+            --border-glow: rgba(255, 117, 140, 0.3);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            --radius: 18px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: radial-gradient(circle at top right, #2c1a2e, #120e16 70%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            overflow-x: hidden;
+            padding-bottom: 95px;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(255, 117, 140, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(255, 117, 140, 0.7); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .vip-backdrop {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            opacity: 0.12;
+            z-index: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            user-select: none;
+        }
+
+        .backdrop-row {
+            white-space: nowrap;
+            font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--accent-rose);
+            text-transform: uppercase;
+            display: flex;
+            gap: 20px;
+            animation: marquee 35s linear infinite;
+            will-change: transform;
+        }
+
+        .backdrop-row:nth-child(even) {
+            animation-direction: reverse;
+            color: var(--accent-gold);
+        }
+
+        .admin-trigger-btn {
+            position: fixed;
+            top: 12px;
+            right: 12px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.2s ease;
+            touch-action: manipulation;
+        }
+        .admin-trigger-btn:active {
+            transform: scale(0.95);
+            background: rgba(255, 117, 140, 0.3);
+        }
+
+        #login-gate {
+            min-height: 100vh;
+            width: 100%;
+            max-width: 440px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .login-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: var(--radius);
+            padding: 32px 22px;
+            width: 100%;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(15px);
+            position: relative;
+        }
+
+        .heart-icon {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .login-card h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2rem, 6vw, 2.4rem);
+            color: var(--accent-rose);
+            margin-bottom: 8px;
+        }
+
+        .login-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 22px;
+            line-height: 1.4;
+        }
+
+        .passcode-wrapper {
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .passcode-input {
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.18);
+            background: rgba(0, 0, 0, 0.45);
+            color: #fff;
+            font-size: 1.25rem;
+            text-align: center;
+            letter-spacing: 4px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .passcode-input:focus {
+            border-color: var(--accent-pink);
+            box-shadow: 0 0 15px rgba(255, 117, 140, 0.35);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            border-radius: 12px;
+            border: none;
+            background: linear-gradient(135deg, var(--accent-pink), #c74375);
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(255, 117, 140, 0.4);
+            transition: transform 0.15s ease;
+            touch-action: manipulation;
+        }
+
+        .login-btn:active {
+            transform: scale(0.97);
+        }
+
+        .error-msg {
+            color: #ff5252;
+            font-size: 0.85rem;
+            margin-top: 14px;
+            min-height: 20px;
+            font-weight: 500;
+        }
+
+        .hint-container {
+            margin-top: 22px;
+            position: relative;
+            height: 48px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .evasive-hint-btn {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px dashed var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 9px 16px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            white-space: nowrap;
+            user-select: none;
+            touch-action: manipulation;
+        }
+
+        #main-content {
+            width: 100%;
+            max-width: 480px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header-greeting {
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        .header-greeting h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2.3rem, 7vw, 3rem);
+            background: linear-gradient(135deg, #fff, var(--accent-rose));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-greeting p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .envelope-wrapper {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            touch-action: manipulation;
+        }
+
+        .envelope-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+
+        .envelope-icon {
+            font-size: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .letter-preview-text {
+            font-weight: 500;
+            color: var(--accent-gold);
+            font-size: 1.05rem;
+        }
+
+        .click-hint {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+
+        .letter-content {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.8s ease, opacity 0.6s ease;
+            font-family: 'Caveat', cursive;
+            font-size: 1.3rem;
+            line-height: 1.55;
+            color: #ffe6eb;
+            border-top: 1px dashed rgba(255, 255, 255, 0.15);
+            margin-top: 0;
+            padding-top: 0;
+            white-space: pre-line;
+            position: relative;
+            z-index: 2;
+        }
+
+        .envelope-wrapper.open {
+            border-color: var(--accent-rose);
+            box-shadow: 0 0 20px rgba(255, 126, 179, 0.3);
+        }
+
+        .envelope-wrapper.open .letter-content {
+            max-height: 5000px;
+            opacity: 1;
+            margin-top: 16px;
+            padding-top: 16px;
+            overflow-y: auto;
+            word-break: break-word;
+        }
+
+        .scrapbook-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            height: 210px;
+            perspective: 1000px;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+        }
+
+        .flip-card-front {
+            background: #fff;
+            padding: 8px 8px 16px 8px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .polaroid-img-box {
+            width: 100%;
+            flex: 1;
+            background: #e2e2e2;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .polaroid-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .placeholder-img-icon {
+            font-size: 2rem;
+            opacity: 0.35;
+        }
+
+        .tape-strip {
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 44px;
+            height: 14px;
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(2px);
+            border-left: 2px dashed rgba(0,0,0,0.1);
+            border-right: 2px dashed rgba(0,0,0,0.1);
+            z-index: 5;
+        }
+
+        .polaroid-caption {
+            color: #222;
+            font-family: 'Caveat', cursive;
+            font-size: 1.05rem;
+            text-align: center;
+            margin-top: 6px;
+            font-weight: 700;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .flip-card-back {
+            background: #fef08a;
+            color: #854d0e;
+            padding: 14px;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Caveat', cursive;
+            font-size: 1.2rem;
+            line-height: 1.35;
+            text-align: center;
+            border: 2px solid #facc15;
+        }
+
+        .coupons-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .coupon-card {
+            background: var(--card-bg);
+            border: 1px dashed var(--accent-pink);
+            border-radius: 14px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .coupon-info h4 {
+            font-size: 0.98rem;
+            color: #fff;
+            margin-bottom: 3px;
+        }
+
+        .coupon-info p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .redeem-btn {
+            background: rgba(255, 117, 140, 0.15);
+            border: 1px solid var(--accent-pink);
+            color: var(--accent-pink);
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            touch-action: manipulation;
+        }
+
+        .redeemed-stamp {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-12deg) scale(2);
+            color: #ef4444;
+            border: 3px double #ef4444;
+            padding: 3px 10px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 0.88rem;
+            letter-spacing: 2px;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: rgba(18, 14, 22, 0.92);
+        }
+
+        .coupon-card.redeemed .redeemed-stamp {
+            opacity: 1;
+            transform: translateY(-50%) rotate(-12deg) scale(1);
+        }
+
+        .coupon-card.redeemed .redeem-btn {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .feeling-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: var(--radius);
+            padding: 20px 16px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .feeling-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .mood-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .mood-chip {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-main);
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .mood-chip.selected {
+            background: var(--accent-pink);
+            border-color: var(--accent-pink);
+            color: #fff;
+            box-shadow: 0 0 10px rgba(255, 117, 140, 0.5);
+        }
+
+        .feeling-textarea {
+            width: 100%;
+            min-height: 80px;
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 10px;
+            color: #fff;
+            font-size: 0.88rem;
+            outline: none;
+            resize: vertical;
+        }
+
+        .feeling-textarea:focus {
+            border-color: var(--accent-pink);
+        }
+
+        .submit-feeling-btn {
+            background: linear-gradient(135deg, var(--accent-pink), #c74375);
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 117, 140, 0.3);
+            touch-action: manipulation;
+        }
+
+        .feeling-sent-msg {
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid #22c55e;
+            color: #4ade80;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .spotify-player {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 20px);
+            max-width: 460px;
+            background: rgba(20, 15, 26, 0.94);
+            border: 1px solid rgba(255, 117, 140, 0.3);
+            border-radius: 40px;
+            padding: 7px 14px 7px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            z-index: 900;
+            animation: pulseGlow 4s infinite;
+        }
+
+        .track-info-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            overflow: hidden;
+        }
+
+        .album-art {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-pink), var(--accent-gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            animation: rotateDisk 8s linear infinite;
+            animation-play-state: paused;
+            flex-shrink: 0;
+        }
+
+        @keyframes rotateDisk {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .track-details {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .track-name {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #fff;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .track-artist {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .play-pause-btn {
+            background: var(--accent-pink);
+            border: none;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(255, 117, 140, 0.4);
+            touch-action: manipulation;
+        }
+
+        .admin-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+        }
+
+        .admin-modal-card {
+            background: #1e1726;
+            border: 1px solid var(--accent-pink);
+            border-radius: var(--radius);
+            width: 100%;
+            max-width: 440px;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .admin-modal-header {
+            padding: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .admin-modal-header h3 {
+            font-size: 1.05rem;
+            color: var(--accent-pink);
+        }
+
+        .close-admin-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.4rem;
+            cursor: pointer;
+        }
+
+        .admin-modal-body {
+            padding: 14px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .admin-section {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .admin-section h4 {
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .admin-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .admin-input-group label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .admin-input, .admin-textarea {
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #fff;
+            padding: 9px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            outline: none;
+        }
+
+        .admin-textarea {
+            resize: vertical;
+            min-height: 75px;
+        }
+
+        .file-upload-btn {
+            background: rgba(255,117,140,0.2);
+            border: 1px dashed var(--accent-pink);
+            color: #fff;
+            padding: 9px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        .admin-save-btn {
+            background: linear-gradient(135deg, var(--accent-pink), #c74375);
+            color: #fff;
+            border: none;
+            padding: 11px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        .inline-status {
+            font-size: 0.8rem;
+            padding: 8px 10px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 6px;
+        }
+        .inline-status.success {
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid #22c55e;
+            color: #4ade80;
+        }
+        .inline-status.error {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid #ef4444;
+            color: #f87171;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            margin-top: 15px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .share-link-banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 117, 140, 0.15);
+            border: 1px dashed var(--accent-pink);
+            padding: 12px 16px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+
+        .share-link-btn {
+            background: linear-gradient(135deg, var(--accent-pink), #c74375);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(255, 117, 140, 0.3);
+            white-space: nowrap;
+            transition: transform 0.2s;
+        }
+        .share-link-btn:active {
+            transform: scale(0.95);
+        }
+
+        .toast-notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: rgba(28, 22, 36, 0.95);
+            border: 1px solid var(--accent-pink);
+            color: #fff;
+            padding: 12px 22px;
+            border-radius: 25px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+            z-index: 3000;
+            opacity: 0;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+            pointer-events: none;
+            text-align: center;
+        }
+        .toast-notification.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Toast Banner -->
+    <div id="toast-banner" class="toast-notification">🎉 Link copied! Send it to your girlfriend ❤️</div>
+
+    <div class="vip-backdrop">
+        <div class="backdrop-row">የኔ • WDYEEEEEEEE • YENE WBET • YENE TRU SET • YENE NAFKOT • YENE AZAGN • YENE ልዕልት • የኔ • WDYEEEEEEEE • YENE WBET • YENE TRU SET</div>
+        <div class="backdrop-row">YENE NAFKOT • YENE AZAGN • YENE ልዕልት • የኔ • WDYEEEEEEEE • YENE WBET • YENE TRU SET • YENE NAFKOT • YENE AZAGN</div>
+        <div class="backdrop-row">የኔ • WDYEEEEEEEE • YENE WBET • YENE TRU SET • YENE NAFKOT • YENE AZAGN • YENE ልዕልት • የኔ • WDYEEEEEEEE • YENE WBET</div>
+        <div class="backdrop-row">YENE TRU SET • YENE NAFKOT • YENE AZAGN • YENE ልዕልት • የኔ • WDYEEEEEEEE • YENE WBET • YENE TRU SET • YENE NAFKOT</div>
+        <div class="backdrop-row">የኔ • WDYEEEEEEEE • YENE WBET • YENE TRU SET • YENE NAFKOT • YENE AZAGN • YENE ልዕልት • የኔ • WDYEEEEEEEE • YENE WBET</div>
+    </div>
+
+    <!-- Admin Access Trigger Button -->
+    <button class="admin-trigger-btn" id="open-admin-btn">⚙️ Admin</button>
+
+    <section id="login-gate" class="fade-in">
+        <div class="login-card">
+            <div class="heart-icon">🔐❤️</div>
+            <h2>VIP Access Only</h2>
+            <p>Enter the special day number to verify your identity</p>
+            
+            <div class="passcode-wrapper">
+                <input type="password" id="passcode-input" class="passcode-input" placeholder="••••" maxlength="10" autocomplete="off" inputmode="numeric">
+            </div>
+
+            <button id="login-btn" class="login-btn">Unlock My Surprise ✨</button>
+
+            <div id="error-msg" class="error-msg"></div>
+
+            <!-- Evasive Hint Button -->
+            <div class="hint-container">
+                <button id="evasive-hint-btn" class="evasive-hint-btn">Need a Hint? 💡</button>
+            </div>
+        </div>
+    </section>
+
+    <main id="main-content" class="hidden">
+        
+        <!-- Header -->
+        <header class="header-greeting">
+            <h1>Happy Birthday My Love! 🎉</h1>
+            <p>Here is a little digital world created just for you</p>
+        </header>
+
+        <!-- Section 2: Unfolding Letter -->
+        <section class="letter-section">
+            <div class="section-title">
+                <span>💌</span> <span id="display-letter-title">A Special Letter For You</span>
+            </div>
+            
+            <div id="envelope" class="envelope-wrapper">
+                <div class="vip-backdrop" style="opacity:0.07;">
+                    <div class="backdrop-row">የኔ • WDYEEEEEEEE • YENE WBET • YENE TRU SET • YENE NAFKOT • YENE AZAGN • YENE ልዕልት</div>
+                    <div class="backdrop-row">YENE NAFKOT • YENE AZAGN • YENE ልዕልት • የኔ • WDYEEEEEEEE • YENE WBET • YENE TRU SET</div>
+                </div>
+
+                <div class="envelope-header">
+                    <div>
+                        <div class="letter-preview-text">Tap to Open Letter 📜</div>
+                        <div class="click-hint">Written straight from the heart</div>
+                    </div>
+                    <div class="envelope-icon">✉️</div>
+                </div>
+                <div id="letter-body-text" class="letter-content">My Dearest,
+
+Happy Birthday! Words will never fully describe how much you mean to me and how grateful I am to have you in my life.
+
+Every smile, every laugh, and every moment we share is something I treasure. Thank you for being my favorite person, and my greatest joy.
+
+ይድረስ ለምወድሽ፣ ለማፈቅርሽ የፍቅሬ ❤ እመቤት ቃልዬ 🥰 ዛሬ የሆነች እንስት ማ ማ እያለች ወደ ምድር የመጣችበት ሲሆን፣ ይህቺም እንስት 👀 አይኗ የሚያሳሳ፣ የሚያወራ፣ 👸የምታምር ።
+🧜‍♀️ጸጉሯ መካከለኛ
+ከንፈሯ የ chocolate donut 🍩 ፣ ሊገመት የሚያሳሳ ሲሳም መልእክት ያለው 🍓 የማር ወለል ፤ አንገቷ የውበት የወርቅ 👨‍❤️‍💋‍👨ማስቀመጫ
+ጡቷ የዘይቱን ፍሬ 🍒
+ወገቧ ያማረ ለሰላሳ እንደፈር ምንጣፍ
+🌸፤
+ዳሌዋ🍑 የአለም ሉል፣ ለተፈቀደለት የሃሴት ቦታ💐፣ ላልተፈቀደለት ⛔️ የመሳሳቻ ስፍራ እንደው
+ወዲህ ወዲያ ሲል
+አሜሪካ Rasia
+አሜሪካ Rasia
+ አሜሪካ Rasia የሚል የለመለመ ኮንፈርት 😘
+ቁመቷ አጠር yalech 👸my favorite person የኔ ውድዬ የመጣችበት ቀን ነሀሴ 5
+
+
+I'm going to tell you what you are to me ✨!
+
+You are a gift to me. 💫
+You are important to me. 🌼
+You are loved to me. 🧡
+You are my ስስት to me. 💗
+You are my practical example of true love to me💝
+
+you are adorable to me 👩
+you are gorgeous to me, 👰
+you are my little queen to me 👸
+you are my first true options to me 🤶
+
+so I care about you,
+I care All about you.
+I thank you God about you. ✝️
+I am happy ✨ about you.
+I am blessed about you. 💟
+I'm gifted about you.💖
+
+Based on these information. You should be my wife. We Can celebrate our special life from now ✨!
+
+
+May this year bring you all the love, happiness, and sweetness you bring into my world every single day!
+
+Forever & Always Yours ❤️</div>
+            </div>
+        </section>
+
+        <!-- Section 3: Interactive 3D Flip Mini-Scrapbook -->
+        <section class="scrapbook-section">
+            <div class="section-title">
+                <span>📸</span> <span>Our Memory Scrapbook</span>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">Tap any photo to flip & read a secret note!</p>
+
+            <div class="scrapbook-grid" id="scrapbook-grid">
+                <!-- Polaroid 1 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="tape-strip"></div>
+                            <div class="polaroid-img-box">
+                                <img id="img-0" src="photo1.jpg" alt="Memory 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <span class="placeholder-img-icon" style="display:none;">🖼️</span>
+                            </div>
+                            <div id="cap-0" class="polaroid-caption">Day 1 Together</div>
+                        </div>
+                        <div id="note-0" class="flip-card-back">
+                            The day my whole life got a million times better! 💛
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Polaroid 2 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="tape-strip"></div>
+                            <div class="polaroid-img-box">
+                                <img id="img-1" src="photo2.jpg" alt="Memory 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <span class="placeholder-img-icon" style="display:none;">🍕</span>
+                            </div>
+                            <div id="cap-1" class="polaroid-caption">Late Night Food</div>
+                        </div>
+                        <div id="note-1" class="flip-card-back">
+                            Proof that you steal half my fries every time! 🍟❤️
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Polaroid 3 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="tape-strip"></div>
+                            <div class="polaroid-img-box">
+                                <img id="img-2" src="photo3.jpg" alt="Memory 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <span class="placeholder-img-icon" style="display:none;">✨</span>
+                            </div>
+                            <div id="cap-2" class="polaroid-caption">Favorite Smile</div>
+                        </div>
+                        <div id="note-2" class="flip-card-back">
+                            Your laughter is officially my favorite sound in the world. 😊
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Polaroid 4 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="tape-strip"></div>
+                            <div class="polaroid-img-box">
+                                <img id="img-3" src="photo4.jpg" alt="Memory 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <span class="placeholder-img-icon" style="display:none;">✈️</span>
+                            </div>
+                            <div id="cap-3" class="polaroid-caption">Adventures</div>
+                        </div>
+                        <div id="note-3" class="flip-card-back">
+                            Anywhere with you is my favorite place to be. 🚗💨
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Polaroid 5 -->
+                <div class="flip-card" style="grid-column: span 2; max-width: 240px; justify-self: center; width: 100%;">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="tape-strip"></div>
+                            <div class="polaroid-img-box">
+                                <img id="img-4" src="photo5.jpg" alt="Memory 5" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <span class="placeholder-img-icon" style="display:none;">👑</span>
+                            </div>
+                            <div id="cap-4" class="polaroid-caption">My Birthday Girl</div>
+                        </div>
+                        <div id="note-4" class="flip-card-back">
+                            The prettiest girl in the universe! Happy Birthday! 🎂👑
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Redeemable Love Coupons -->
+        <section class="coupons-section">
+            <div class="section-title">
+                <span>🎟️</span> <span>Redeemable Love Coupons</span>
+            </div>
+
+            <div class="coupons-list">
+                <div class="coupon-card">
+                    <div class="coupon-info">
+                        <h4 id="coupon-title-0">Redeem for 1 Free intimacy touches</h4>
+                        <p>Valid anytime, non-refundable & no expiration!</p>
+                    </div>
+                    <button class="redeem-btn">Redeem</button>
+                    <div class="redeemed-stamp">REDEEMED</div>
+                </div>
+
+                <div class="coupon-card">
+                    <div class="coupon-info">
+                        <h4 id="coupon-title-1">Redeem for 77 kiss</h4>
+                        <p>Must be claimed immediately with extra hugs!</p>
+                    </div>
+                    <button class="redeem-btn">Redeem</button>
+                    <div class="redeemed-stamp">REDEEMED</div>
+                </div>
+
+                <div class="coupon-card">
+                    <div class="coupon-info">
+                        <h4 id="coupon-title-2">Redeem for special serving lunch</h4>
+                        <p>Chef special cooked & served exclusively for you.</p>
+                    </div>
+                    <button class="redeem-btn">Redeem</button>
+                    <div class="redeemed-stamp">REDEEMED</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: How Do You Feel Right Now? -->
+        <section class="feeling-section">
+            <div class="section-title">
+                <span>💖</span> <span>How Do You Feel Right Now?</span>
+            </div>
+
+            <div class="feeling-card">
+                <p class="feeling-subtitle">Select your mood & leave an honest secret message for me:</p>
+                
+                <div class="mood-chips">
+                    <button class="mood-chip" data-mood="🥰 Super Loved & Blessed">🥰 Super Loved</button>
+                    <button class="mood-chip" data-mood="🥹 Happy Tears / So Touched">🥹 Happy Tears</button>
+                    <button class="mood-chip" data-mood="🤗 Need a Big Hug Right Now">🤗 Need a Hug</button>
+                    <button class="mood-chip" data-mood="💃 Ready to Celebrate!">💃 Ready to Celebrate</button>
+                    <button class="mood-chip" data-mood="👑 Treated Like a Queen">👑 Like a Queen</button>
+                </div>
+
+                <textarea id="her-feeling-input" class="feeling-textarea" placeholder="Type what you feel in your heart right now... (optional)"></textarea>
+
+                <div id="feeling-form-alert" class="inline-status hidden"></div>
+
+                <button id="submit-feeling-btn" class="submit-feeling-btn">Send My Feeling to You ❤️</button>
+
+                <div id="feeling-sent-msg" class="feeling-sent-msg hidden">
+                    🎉 Thank you my love! Your message has been locked in my heart forever! 🔒❤️
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer-note">
+            Made with infinite love for you ❤️
+            <div style="margin-top: 12px;">
+                <button class="share-link-btn" onclick="copyShareLink()">🔗 Copy Link for Girlfriend</button>
+            </div>
+        </footer>
+
+    </main>
+
+    <div id="spotify-player" class="spotify-player hidden">
+        <div class="track-info-group">
+            <div id="album-disk" class="album-art">🎵</div>
+            <div class="track-details">
+                <div id="player-song-title" class="track-name">Our Special Song 💕</div>
+                <div class="track-artist">Playing your special track 💕</div>
+            </div>
+        </div>
+        <div class="player-controls">
+            <button id="play-pause-btn" class="play-pause-btn">▶️</button>
+        </div>
+        
+        <!-- Native HTML5 Audio Player -->
+        <audio id="bg-audio" loop preload="auto">
+            <source id="audio-source" src="song.mp3" type="audio/mp3">
+        </audio>
+    </div>
+
+    <div id="admin-modal" class="admin-modal-overlay hidden">
+        <div class="admin-modal-card">
+            <div class="admin-modal-header">
+                <h3>⚙️ Admin Panel</h3>
+                <button id="close-admin-btn" class="close-admin-btn">&times;</button>
+            </div>
+            <div class="admin-modal-body">
+                
+                <!-- Share Link Feature Box -->
+                <div class="share-link-banner">
+                    <div>
+                        <div style="font-weight: 600; font-size: 0.85rem; color: #fff;">🔗 Share Website with Girlfriend</div>
+                        <div style="font-size: 0.72rem; color: var(--text-muted);">Generates & copies link with your customized content</div>
+                    </div>
+                    <button class="share-link-btn" id="admin-copy-link-btn">Copy Link</button>
+                </div>
+
+                <!-- Admin Security Step -->
+                <div id="admin-auth-box" class="admin-section">
+                    <p style="font-size:0.85rem; color: var(--text-muted);">Enter passcode to access settings:</p>
+                    <input type="password" id="admin-pass-input" class="admin-input" placeholder="Passcode" maxlength="10">
+                    <div id="admin-login-error" class="inline-status error hidden"></div>
+                    <button id="admin-login-btn" class="admin-save-btn">Verify Passcode</button>
+                </div>
+
+                <!-- Admin Controls Box -->
+                <div id="admin-controls-box" class="hidden admin-section">
+                    
+                    <!-- Her Feeling Response Viewer -->
+                    <div class="admin-section" style="background: rgba(255,117,140,0.1); border:1px dashed var(--accent-pink); padding:12px; border-radius:12px;">
+                        <h4 style="color:var(--accent-pink);">💌 Her Honest Feelings & Reply</h4>
+                        <div id="admin-feeling-display" style="font-size:0.85rem; color:#fff; line-height:1.5;">
+                            <em>No response submitted yet.</em>
+                        </div>
+                    </div>
+
+                    <!-- 1. Music Settings & Upload -->
+                    <div class="admin-section">
+                        <h4>🎵 Music Settings & Upload</h4>
+                        <div class="admin-input-group">
+                            <label>Song Title Display</label>
+                            <input type="text" id="admin-song-title" class="admin-input" value="Our Special Song 💕">
+                        </div>
+                        
+                        <div class="admin-input-group">
+                            <label>Upload Audio File (.mp3, .m4a, .wav)</label>
+                            <label class="file-upload-btn" style="background: rgba(255,117,140,0.25); border: 2px dashed var(--accent-pink); padding: 12px; font-weight: 600;">
+                                🎵 Click Here to Select Audio File
+                                <input type="file" id="admin-audio-file-input" accept="audio/*" style="display:none;">
+                            </label>
+                        </div>
+
+                        <div id="audio-upload-status" style="font-size:0.82rem; color:var(--accent-gold); min-height: 20px;"></div>
+
+                        <div style="display:flex; gap:10px; margin-top:5px;">
+                            <button id="admin-test-audio-btn" type="button" style="flex:1; background: rgba(34,197,94,0.2); border:1px solid #22c55e; color:#4ade80; padding:10px; border-radius:8px; font-size:0.82rem; font-weight:600; cursor:pointer;">▶️ Test Audio File</button>
+                        </div>
+                    </div>
+
+                    <!-- 2. Letter Customization -->
+                    <div class="admin-section">
+                        <h4>💌 Letter Customization</h4>
+                        <div class="admin-input-group">
+                            <label>Letter Title</label>
+                            <input type="text" id="admin-letter-title" class="admin-input">
+                        </div>
+                        <div class="admin-input-group">
+                            <label>Letter Content Body</label>
+                            <textarea id="admin-letter-body" class="admin-textarea"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- 3. Photo Uploads & Captions -->
+                    <div class="admin-section">
+                        <h4>📸 Memory Scrapbook Photos</h4>
+                        <div id="admin-photos-container" style="display:flex; flex-direction:column; gap:12px;"></div>
+                    </div>
+
+                    <!-- 4. Coupon Titles -->
+                    <div class="admin-section">
+                        <h4>🎟️ Coupon Titles</h4>
+                        <div class="admin-input-group">
+                            <label>Coupon 1</label>
+                            <input type="text" id="admin-coupon-0" class="admin-input">
+                        </div>
+                        <div class="admin-input-group">
+                            <label>Coupon 2</label>
+                            <input type="text" id="admin-coupon-1" class="admin-input">
+                        </div>
+                        <div class="admin-input-group">
+                            <label>Coupon 3</label>
+                            <input type="text" id="admin-coupon-2" class="admin-input">
+                        </div>
+                    </div>
+
+                    <div id="admin-save-status" class="inline-status hidden"></div>
+
+                    <button id="admin-save-all-btn" class="admin-save-btn">💾 Save All Changes</button>
+                    <button id="admin-reset-btn" type="button" style="background:transparent; border:none; color:#ef4444; font-size:0.8rem; cursor:pointer; margin-top:5px; padding:6px;">⚠️ Reset to Original Defaults</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase Cloud Sync & Main Logic Module -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc, onSnapshot, collection } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'birthday-special-website';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
+
+        let db = null;
+        let auth = null;
+        let currentUser = null;
+
+        window.appData = {
+            songTitle: "Our Special Song 💕",
+            letterTitle: "A Special Letter For You",
+            letterBody: `My Dearest,
+
+Happy Birthday! Words will never fully describe how much you mean to me and how grateful I am to have you in my life.
+
+Every smile, every laugh, and every moment we share is something I treasure. Thank you for being my favorite person, and my greatest joy.
+
+ይድረስ ለምወድሽ፣ ለማፈቅርሽ የፍቅሬ ❤ እመቤት ቃልዬ 🥰 ዛሬ የሆነች እንስት ማ ማ እያለች ወደ ምድር የመጣችበት ሲሆን፣ ይህቺም እንስት 👀 አይኗ የሚያሳሳ፣ የሚያወራ፣ 👸የምታምር ።
+🧜‍♀️ጸጉሯ መካከለኛ
+ከንፈሯ የ chocolate donut 🍩 ፣ ሊገመት የሚያሳሳ ሲሳም መልእክት ያለው 🍓 የማር ወለል ፤ አንገቷ የውበት የወርቅ 👨‍❤️‍💋‍👨ማስቀመጫ
+ጡቷ የዘይቱን ፍሬ 🍒
+ወገቧ ያማረ ለሰላሳ እንደፈር ምንጣፍ
+🌸፤
+ዳሌዋ🍑 የአለም ሉል፣ ለተፈቀደለት የሃሴት ቦታ💐፣ ላልተፈቀደለት ⛔️ የመሳሳቻ ስፍራ እንደው
+ወዲህ ወዲያ ሲል
+አሜሪካ Rasia
+አሜሪካ Rasia
+ አሜሪካ Rasia የሚል የለመለመ ኮንፈርት 😘
+ቁመቷ አጠር yalech 👸my favorite person የኔ ውድዬ የመጣችበት ቀን ነሀሴ 5
+
+
+I'm going to tell you what you are to me ✨!
+
+You are a gift to me. 💫
+You are important to me. 🌼
+You are loved to me. 🧡
+You are my ስስት to me. 💗
+You are my practical example of true love to me💝
+
+you are adorable to me 👩
+you are gorgeous to me, 👰
+you are my little queen to me 👸
+you are my first true options to me 🤶
+
+so I care about you,
+I care All about you.
+I thank you God about you. ✝️
+I am happy ✨ about you.
+I am blessed about you. 💟
+I'm gifted about you.💖
+
+Based on these information. You should be my wife. We Can celebrate our special life from now ✨!
+
+
+May this year bring you all the love, happiness, and sweetness you bring into my world every single day!
+
+Forever & Always Yours ❤️`,
+            polaroids: [
+                { img: "photo1.jpg", cap: "Day 1 Together", note: "The day my whole life got a million times better! 💛" },
+                { img: "photo2.jpg", cap: "Late Night Food", note: "Proof that you steal half my fries every time! 🍟❤️" },
+                { img: "photo3.jpg", cap: "Favorite Smile", note: "Your laughter is officially my favorite sound in the world. 😊" },
+                { img: "photo4.jpg", cap: "Adventures", note: "Anywhere with you is my favorite place to be. 🚗💨" },
+                { img: "photo5.jpg", cap: "My Birthday Girl", note: "The prettiest girl in the universe! Happy Birthday! 🎂👑" }
+            ],
+            coupons: [
+                "Redeem for 1 Free intimacy touches",
+                "Redeem for 77 kiss",
+                "Redeem for special serving lunch"
+            ],
+            herResponse: null
+        };
+
+        function checkUrlForData() {
+            try {
+                const hash = window.location.hash || window.location.search;
+                if (hash && hash.includes('data=')) {
+                    const encodedData = hash.split('data=')[1].split('&')[0];
+                    if (encodedData) {
+                        const decodedJson = decodeURIComponent(encodedData);
+                        const parsedObj = JSON.parse(decodedJson);
+                        if (parsedObj && typeof parsedObj === 'object') {
+                            window.appData = { ...window.appData, ...parsedObj };
+                            localStorage.setItem('birthday_site_data', JSON.stringify(window.appData));
+                            return true;
+                        }
+                    }
+                }
+            } catch (e) {
+                console.error("URL state parse error:", e);
+            }
+            return false;
+        }
+
+        async function initCloudSync() {
+            const loadedFromUrl = checkUrlForData();
+
+            if (!firebaseConfig) {
+                if (!loadedFromUrl) loadLocalState();
+                else window.renderUI();
+                return;
+            }
+
+            try {
+                const firebaseApp = initializeApp(firebaseConfig);
+                auth = getAuth(firebaseApp);
+                db = getFirestore(firebaseApp);
+
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    const userCred = await signInWithCustomToken(auth, __initial_auth_token);
+                    currentUser = userCred.user;
+                } else {
+                    const userCred = await signInAnonymously(auth);
+                    currentUser = userCred.user;
+                }
+
+                if (!currentUser) return;
+
+                const configDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'config', 'siteData');
+                onSnapshot(configDocRef, (docSnap) => {
+                    if (docSnap.exists()) {
+                        const cloudData = docSnap.data();
+                        window.appData = { ...window.appData, ...cloudData };
+                        window.renderUI();
+                    } else if (!loadedFromUrl) {
+                        saveStateToCloud();
+                    }
+                }, (err) => console.error("Cloud config sync error:", err));
+
+                const responseDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'responses', 'herResponse');
+                onSnapshot(responseDocRef, (docSnap) => {
+                    if (docSnap.exists()) {
+                        window.appData.herResponse = docSnap.data();
+                        window.renderHerResponse();
+                    }
+                }, (err) => console.error("Cloud response sync error:", err));
+
+            } catch (e) {
+                console.error("Firebase init failed, using local state:", e);
+                if (!loadedFromUrl) loadLocalState();
+            }
+        }
+
+        function loadLocalState() {
+            const saved = localStorage.getItem('birthday_site_data');
+            if (saved) {
+                try {
+                    window.appData = JSON.parse(saved);
+                } catch(e) {
+                    console.error("Error loading local data", e);
+                }
+            }
+            window.renderUI();
+        }
+
+        window.saveStateToCloud = async function() {
+            localStorage.setItem('birthday_site_data', JSON.stringify(window.appData));
+            
+            try {
+                const payload = {
+                    songTitle: window.appData.songTitle,
+                    letterTitle: window.appData.letterTitle,
+                    letterBody: window.appData.letterBody,
+                    polaroids: window.appData.polaroids,
+                    coupons: window.appData.coupons
+                };
+                const encodedData = encodeURIComponent(JSON.stringify(payload));
+                history.replaceState(null, null, `#data=${encodedData}`);
+            } catch (e) {
+                console.error("Address bar hash update error:", e);
+            }
+
+            if (db && currentUser) {
+                try {
+                    const configDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'config', 'siteData');
+                    await setDoc(configDocRef, {
+                        songTitle: window.appData.songTitle,
+                        letterTitle: window.appData.letterTitle,
+                        letterBody: window.appData.letterBody,
+                        polaroids: window.appData.polaroids,
+                        coupons: window.appData.coupons
+                    });
+                } catch (e) {
+                    console.error("Error saving state to cloud:", e);
+                }
+            }
+        };
+
+        window.saveHerResponseToCloud = async function(responseObj) {
+            window.appData.herResponse = responseObj;
+            localStorage.setItem('birthday_site_data', JSON.stringify(window.appData));
+
+            if (db && currentUser) {
+                try {
+                    const responseDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'responses', 'herResponse');
+                    await setDoc(responseDocRef, responseObj);
+                } catch (e) {
+                    console.error("Error saving her response to cloud:", e);
+                }
+            }
+            window.renderHerResponse();
+        };
+
+        initCloudSync();
+    </script>
+
+    <script>
+        const CORRECT_KEY = "1125";
+        const ADMIN_KEY = "1111";
+        
+        let currentAudioBlobUrl = null;
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast-banner');
+            if (!toast) return;
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3500);
+        }
+
+        window.copyShareLink = function() {
+            try {
+                let baseUrl = window.location.href.split('#')[0].split('?')[0];
+                
+                const payload = {
+                    songTitle: window.appData.songTitle,
+                    letterTitle: window.appData.letterTitle,
+                    letterBody: window.appData.letterBody,
+                    polaroids: window.appData.polaroids,
+                    coupons: window.appData.coupons
+                };
+
+                const jsonStr = JSON.stringify(payload);
+                const encodedData = encodeURIComponent(jsonStr);
+                const shareableUrl = `${baseUrl}#data=${encodedData}`;
+
+                const tempInput = document.createElement('textarea');
+                tempInput.value = shareableUrl;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+
+                showToast("🎉 Website link copied! Send it to your girlfriend ❤️");
+            } catch (err) {
+                console.error("Copy share link failed:", err);
+                showToast("🎉 Link ready! Copy from address bar.");
+            }
+        };
+
+        const adminCopyBtn = document.getElementById('admin-copy-link-btn');
+        if (adminCopyBtn) adminCopyBtn.addEventListener('click', window.copyShareLink);
+
+        function compressImage(file, maxWidth = 600, quality = 0.75) {
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        let width = img.width;
+                        let height = img.height;
+                        if (width > maxWidth) {
+                            height = Math.round((height * maxWidth) / width);
+                            width = maxWidth;
+                        }
+                        canvas.width = width;
+                        canvas.height = height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, width, height);
+                        resolve(canvas.toDataURL('image/jpeg', quality));
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function openAudioDB() {
+            return new Promise((resolve, reject) => {
+                const req = indexedDB.open('BirthdayAudioDB', 1);
+                req.onupgradeneeded = () => req.result.createObjectStore('audioStore');
+                req.onsuccess = () => resolve(req.result);
+                req.onerror = () => reject(req.error);
+            });
+        }
+
+        async function storeAudioFile(fileOrBlob) {
+            try {
+                const db = await openAudioDB();
+                const tx = db.transaction('audioStore', 'readwrite');
+                tx.objectStore('audioStore').put(fileOrBlob, 'bgMusic');
+                return new Promise((resolve) => {
+                    tx.oncomplete = () => resolve(true);
+                    tx.onerror = () => resolve(false);
+                });
+            } catch(e) {
+                console.error("IndexedDB Save Error", e);
+                return false;
+            }
+        }
+
+        async function loadStoredAudio() {
+            try {
+                const db = await openAudioDB();
+                return new Promise((resolve) => {
+                    const tx = db.transaction('audioStore', 'readonly');
+                    const req = tx.objectStore('audioStore').get('bgMusic');
+                    req.onsuccess = () => resolve(req.result);
+                    req.onerror = () => resolve(null);
+                });
+            } catch(e) {
+                return null;
+            }
+        }
+
+        async function initAudio() {
+            const audioBlob = await loadStoredAudio();
+            if (audioBlob) {
+                if (currentAudioBlobUrl) URL.revokeObjectURL(currentAudioBlobUrl);
+                currentAudioBlobUrl = URL.createObjectURL(audioBlob);
+                const bgAudio = document.getElementById('bg-audio');
+                bgAudio.src = currentAudioBlobUrl;
+            }
+        }
+
+        window.renderUI = function() {
+            if (!window.appData) return;
+            document.getElementById('player-song-title').textContent = window.appData.songTitle;
+            document.getElementById('display-letter-title').textContent = window.appData.letterTitle;
+            document.getElementById('letter-body-text').textContent = window.appData.letterBody;
+
+            window.appData.polaroids.forEach((item, index) => {
+                const imgEl = document.getElementById(`img-${index}`);
+                const capEl = document.getElementById(`cap-${index}`);
+                const noteEl = document.getElementById(`note-${index}`);
+                
+                if (imgEl) {
+                    if (item.img) {
+                        imgEl.src = item.img;
+                        imgEl.style.display = 'block';
+                        if (imgEl.nextElementSibling) imgEl.nextElementSibling.style.display = 'none';
+                    } else {
+                        imgEl.removeAttribute('src');
+                        imgEl.style.display = 'none';
+                        if (imgEl.nextElementSibling) imgEl.nextElementSibling.style.display = 'block';
+                    }
+                }
+                if (capEl) capEl.textContent = item.cap;
+                if (noteEl) noteEl.textContent = item.note;
+            });
+
+            window.appData.coupons.forEach((title, index) => {
+                const cEl = document.getElementById(`coupon-title-${index}`);
+                if (cEl) cEl.textContent = title;
+            });
+
+            window.renderHerResponse();
+        };
+
+        window.renderHerResponse = function() {
+            const displayBox = document.getElementById('admin-feeling-display');
+            if (!displayBox || !window.appData) return;
+
+            if (window.appData.herResponse) {
+                displayBox.innerHTML = `
+                    <div style="margin-bottom:4px;"><strong>Selected Mood:</strong> ${window.appData.herResponse.mood || 'Not selected'}</div>
+                    <div style="margin-bottom:4px;"><strong>Note:</strong> "${window.appData.herResponse.note || 'No written note'}"</div>
+                    <div style="font-size:0.7rem; color:var(--accent-gold);">Submitted: ${window.appData.herResponse.time || 'Recently'}</div>
+                `;
+            } else {
+                displayBox.innerHTML = `<em>No response submitted yet.</em>`;
+            }
+        };
+
+        const playfulMessages = [
+            "I love you! ❤️",
+            "Kiss me first! 💋",
+            "Hug me first! 🤗",
+            "Hold my hand first! 🤝",
+            "Say I'm your favorite human! 👑",
+            "One more tap, I promise! ✨",
+            "Okay fine! Key starts with: 1*** 😉"
+        ];
+        let hintIndex = 0;
+
+        const evasiveBtn = document.getElementById('evasive-hint-btn');
+        
+        function handleHintEvasion() {
+            evasiveBtn.textContent = playfulMessages[hintIndex];
+            if (hintIndex < playfulMessages.length - 1) hintIndex++;
+
+            const randomX = (Math.random() - 0.5) * 150;
+            const randomY = (Math.random() - 0.5) * 70;
+            evasiveBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+
+        evasiveBtn.addEventListener('mouseenter', handleHintEvasion);
+        evasiveBtn.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            handleHintEvasion();
+        });
+
+        const loginBtn = document.getElementById('login-btn');
+        const passInput = document.getElementById('passcode-input');
+        const errorMsg = document.getElementById('error-msg');
+        const loginGate = document.getElementById('login-gate');
+        const mainContent = document.getElementById('main-content');
+        const spotifyPlayer = document.getElementById('spotify-player');
+        const bgAudio = document.getElementById('bg-audio');
+
+        function playAudio() {
+            if (!bgAudio.src) return;
+            bgAudio.play().then(() => {
+                const playPauseBtn = document.getElementById('play-pause-btn');
+                const albumDisk = document.getElementById('album-disk');
+                if (playPauseBtn) playPauseBtn.textContent = "⏸️";
+                if (albumDisk) albumDisk.style.animationPlayState = "running";
+            }).catch(e => {
+                console.log("Audio play error", e);
+            });
+        }
+
+        function attemptLogin() {
+            const inputVal = passInput.value.trim();
+            
+            if (inputVal === CORRECT_KEY) {
+                errorMsg.textContent = "";
+                
+                loginGate.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+                loginGate.style.opacity = "0";
+                loginGate.style.transform = "scale(0.95)";
+                
+                playAudio();
+
+                setTimeout(() => {
+                    loginGate.classList.add('hidden');
+                    mainContent.classList.remove('hidden');
+                    mainContent.classList.add('fade-in');
+                    spotifyPlayer.classList.remove('hidden');
+                }, 500);
+            } else {
+                errorMsg.textContent = "❌ Access Denied! Are you sure you are the real [Her Name]? Nice try, intruder!";
+                passInput.value = "";
+            }
+        }
+
+        loginBtn.addEventListener('click', attemptLogin);
+        passInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') attemptLogin();
+        });
+
+        const envelope = document.getElementById('envelope');
+        envelope.addEventListener('click', () => {
+            envelope.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.flip-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('flipped');
+            });
+        });
+
+        document.querySelectorAll('.redeem-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                btn.closest('.coupon-card').classList.add('redeemed');
+            });
+        });
+
+        let selectedMood = "";
+        const moodChips = document.querySelectorAll('.mood-chip');
+        moodChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                moodChips.forEach(c => c.classList.remove('selected'));
+                chip.classList.add('selected');
+                selectedMood = chip.getAttribute('data-mood');
+            });
+        });
+
+        const submitFeelingBtn = document.getElementById('submit-feeling-btn');
+        const herFeelingInput = document.getElementById('her-feeling-input');
+        const feelingSentMsg = document.getElementById('feeling-sent-msg');
+        const feelingAlert = document.getElementById('feeling-form-alert');
+
+        submitFeelingBtn.addEventListener('click', () => {
+            const noteText = herFeelingInput.value.trim();
+            if (!selectedMood && !noteText) {
+                feelingAlert.className = "inline-status error";
+                feelingAlert.textContent = "Please select a mood or type a note first! ❤️";
+                feelingAlert.classList.remove('hidden');
+                return;
+            }
+
+            feelingAlert.classList.add('hidden');
+            const responseObj = {
+                mood: selectedMood || "❤️ Filled with Love",
+                note: noteText,
+                time: new Date().toLocaleString()
+            };
+
+            if (window.saveHerResponseToCloud) {
+                window.saveHerResponseToCloud(responseObj);
+            }
+
+            feelingSentMsg.classList.remove('hidden');
+            submitFeelingBtn.style.display = 'none';
+        });
+
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const albumDisk = document.getElementById('album-disk');
+
+        playPauseBtn.addEventListener('click', () => {
+            if (bgAudio.paused) {
+                bgAudio.play();
+                playPauseBtn.textContent = "⏸️";
+                albumDisk.style.animationPlayState = "running";
+            } else {
+                bgAudio.pause();
+                playPauseBtn.textContent = "▶️";
+                albumDisk.style.animationPlayState = "paused";
+            }
+        });
+
+        const openAdminBtn = document.getElementById('open-admin-btn');
+        const closeAdminBtn = document.getElementById('close-admin-btn');
+        const adminModal = document.getElementById('admin-modal');
+        const adminAuthBox = document.getElementById('admin-auth-box');
+        const adminControlsBox = document.getElementById('admin-controls-box');
+        const adminPassInput = document.getElementById('admin-pass-input');
+        const adminLoginBtn = document.getElementById('admin-login-btn');
+        const adminLoginError = document.getElementById('admin-login-error');
+
+        openAdminBtn.addEventListener('click', () => {
+            adminModal.classList.remove('hidden');
+            adminLoginError.classList.add('hidden');
+            adminPassInput.value = "";
+            adminAuthBox.classList.remove('hidden');
+            adminControlsBox.classList.add('hidden');
+        });
+
+        closeAdminBtn.addEventListener('click', () => {
+            adminModal.classList.add('hidden');
+            adminAuthBox.classList.remove('hidden');
+            adminControlsBox.classList.add('hidden');
+            adminPassInput.value = "";
+        });
+
+        adminLoginBtn.addEventListener('click', () => {
+            const inputKey = adminPassInput.value.trim();
+            if (inputKey === ADMIN_KEY || inputKey === CORRECT_KEY) {
+                adminLoginError.classList.add('hidden');
+                adminAuthBox.classList.add('hidden');
+                adminControlsBox.classList.remove('hidden');
+                populateAdminForm();
+            } else {
+                adminLoginError.textContent = "❌ Incorrect Passcode!";
+                adminLoginError.classList.remove('hidden');
+                adminPassInput.value = "";
+            }
+        });
+
+        let tempUploadedAudioBlob = null;
+
+        function populateAdminForm() {
+            if (!window.appData) return;
+            document.getElementById('admin-song-title').value = window.appData.songTitle;
+            document.getElementById('admin-letter-title').value = window.appData.letterTitle;
+            document.getElementById('admin-letter-body').value = window.appData.letterBody;
+
+            window.renderHerResponse();
+
+            const audioFileInput = document.getElementById('admin-audio-file-input');
+            const statusDiv = document.getElementById('audio-upload-status');
+            
+            audioFileInput.onchange = async (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    tempUploadedAudioBlob = file;
+                    if (currentAudioBlobUrl) URL.revokeObjectURL(currentAudioBlobUrl);
+                    currentAudioBlobUrl = URL.createObjectURL(file);
+                    bgAudio.src = currentAudioBlobUrl;
+                    
+                    window.appData.songTitle = file.name.replace(/\.[^/.]+$/, "");
+                    document.getElementById('admin-song-title').value = window.appData.songTitle;
+                    
+                    statusDiv.innerHTML = `✅ Selected: <strong>${file.name}</strong> (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+                }
+            };
+
+            document.getElementById('admin-test-audio-btn').onclick = () => {
+                if (!bgAudio.src) {
+                    statusDiv.innerHTML = `<span style="color:#ef4444;">Please select an audio file first!</span>`;
+                    return;
+                }
+                if (bgAudio.paused) {
+                    bgAudio.play();
+                    document.getElementById('admin-test-audio-btn').textContent = "⏸️ Pause Audio Test";
+                } else {
+                    bgAudio.pause();
+                    document.getElementById('admin-test-audio-btn').textContent = "▶️ Test Audio File";
+                }
+            };
+
+            const photoContainer = document.getElementById('admin-photos-container');
+            photoContainer.innerHTML = "";
+
+            window.appData.polaroids.forEach((item, idx) => {
+                const box = document.createElement('div');
+                box.className = "admin-input-group";
+                box.style.borderBottom = "1px solid rgba(255,255,255,0.1)";
+                box.style.paddingBottom = "8px";
+                
+                box.innerHTML = `
+                    <label><strong>Polaroid #${idx + 1}</strong></label>
+                    <label class="file-upload-btn">
+                        📷 Choose Photo for Card ${idx + 1}
+                        <input type="file" accept="image/*" style="display:none;" id="file-input-${idx}">
+                    </label>
+                    <input type="text" class="admin-input" id="admin-cap-${idx}" value="${item.cap}" placeholder="Caption">
+                    <input type="text" class="admin-input" id="admin-note-${idx}" value="${item.note}" placeholder="Secret Note">
+                `;
+                photoContainer.appendChild(box);
+
+                setTimeout(() => {
+                    const fileIn = document.getElementById(`file-input-${idx}`);
+                    if (fileIn) {
+                        fileIn.addEventListener('change', async (e) => {
+                            const file = e.target.files[0];
+                            if (file) {
+                                const compressedDataUrl = await compressImage(file);
+                                window.appData.polaroids[idx].img = compressedDataUrl;
+                                const saveStatus = document.getElementById('admin-save-status');
+                                saveStatus.className = "inline-status success";
+                                saveStatus.textContent = `Photo #${idx + 1} loaded & optimized! Click 'Save All Changes'.`;
+                                saveStatus.classList.remove('hidden');
+                            }
+                        });
+                    }
+                }, 100);
+            });
+
+            window.appData.coupons.forEach((title, idx) => {
+                const input = document.getElementById(`admin-coupon-${idx}`);
+                if (input) input.value = title;
+            });
+        }
+
+        const adminSaveStatus = document.getElementById('admin-save-status');
+
+        document.getElementById('admin-save-all-btn').addEventListener('click', async () => {
+            window.appData.songTitle = document.getElementById('admin-song-title').value;
+            window.appData.letterTitle = document.getElementById('admin-letter-title').value;
+            window.appData.letterBody = document.getElementById('admin-letter-body').value;
+
+            if (tempUploadedAudioBlob) {
+                await storeAudioFile(tempUploadedAudioBlob);
+                tempUploadedAudioBlob = null;
+            }
+
+            window.appData.polaroids.forEach((item, idx) => {
+                const capIn = document.getElementById(`admin-cap-${idx}`);
+                const noteIn = document.getElementById(`admin-note-${idx}`);
+                if (capIn) item.cap = capIn.value;
+                if (noteIn) item.note = noteIn.value;
+            });
+
+            window.appData.coupons[0] = document.getElementById('admin-coupon-0').value;
+            window.appData.coupons[1] = document.getElementById('admin-coupon-1').value;
+            window.appData.coupons[2] = document.getElementById('admin-coupon-2').value;
+
+            if (window.saveStateToCloud) {
+                window.saveStateToCloud();
+            }
+
+            adminSaveStatus.className = "inline-status success";
+            adminSaveStatus.textContent = "🎉 All changes synced to cloud!";
+            adminSaveStatus.classList.remove('hidden');
+
+            setTimeout(() => {
+                adminModal.classList.add('hidden');
+                adminSaveStatus.classList.add('hidden');
+                adminAuthBox.classList.remove('hidden');
+                adminControlsBox.classList.add('hidden');
+                adminPassInput.value = "";
+            }, 1200);
+        });
+
+        let resetConfirmStage = false;
+        const resetBtn = document.getElementById('admin-reset-btn');
+
+        resetBtn.addEventListener('click', () => {
+            if (!resetConfirmStage) {
+                resetConfirmStage = true;
+                resetBtn.textContent = "❗ Click again to CONFIRM complete reset";
+                resetBtn.style.color = "#ff5252";
+                resetBtn.style.fontWeight = "bold";
+            } else {
+                localStorage.removeItem('birthday_site_data');
+                indexedDB.deleteDatabase('BirthdayAudioDB');
+                location.reload();
+            }
+        });
+
+        initAudio();
+    </script>
+</body>
+</html>
